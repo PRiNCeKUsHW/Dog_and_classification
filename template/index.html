@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat vs Dog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .upload-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .upload-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .upload-form input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .upload-form button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .result h1 {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Dog vs Cat Classification</h1>
+        <p>This classification is done using a CNN (Convolutional Neural Network)</p>
+    </header>
+    <div class="container">
+        <div class="upload-form">
+            <form action="/check" method="post" enctype="multipart/form-data">
+                <label for="file">Upload a cat or dog image:</label>
+                <input type="file" id="file" name="file">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="result">
+            {% if prediction %}
+                <h1>{{ prediction }}</h1>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
